@@ -23,7 +23,7 @@
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "watch": "npm run build:commonjs -- --watch",
     "watch:es": "npm run build:es -- --watch",
-    "prepare": "npm run clean && npm run build",
+    "prepare": "echo '!!PREPARE!!' && npm run clean && npm run build",
     "prepush": "npm run lint",
     "docs:clean": "rimraf _book",
     "docs:prepare": "gitbook install",
