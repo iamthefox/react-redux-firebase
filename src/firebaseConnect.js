@@ -39,7 +39,7 @@ export const createFirebaseConnect = (storeKey = 'store') => (
     prevData = null
     store = this.context[storeKey]
 
-    componentWillMount() {
+    componentDidMount() {
       // Throw if using with react-redux@^6
       if (!this.context || !this.context[storeKey]) {
         // Use react-redux-firebase@^3 for react-redux@^6 support. More info available in the migration guide: http://bit.ly/2SRNdiO'
