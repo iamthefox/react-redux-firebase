@@ -1,4 +1,5 @@
 # react-redux-firebase
+## (!!! DO NOT USE THIS LIBRARY IT WAS FORKED FOR TEST PURPOSES ONLY!!!)
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][npm-downloads-image]][npm-url]
