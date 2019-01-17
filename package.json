@@ -37,10 +37,7 @@
   "homepage": "http://react-redux-firebase.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prescottprue/react-redux-firebase.git"
-  },
-  "bugs": {
-    "url": "https://github.com/prescottprue/react-redux-firebase/issues"
+    "url": "git+https://github.com/iamthefox/react-redux-firebase.git"
   },
   "author": {
     "name": "Prescott Prue",

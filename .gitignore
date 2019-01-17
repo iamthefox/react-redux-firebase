@@ -18,9 +18,6 @@ examples/**/node_modules
 _book/**
 _site/**
 coverage
-dist
-es
-lib
 _book
 # Logs
 *.log
