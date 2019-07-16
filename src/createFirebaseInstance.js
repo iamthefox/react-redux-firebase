@@ -13,7 +13,7 @@ import { authActions, queryActions, storageActions } from './actions'
  * @return {Object} Extended Firebase instance
  * @private
  */
-export default function createFirebaseInstance(firebase, configs, dispatch) {
+export default function createFirebaseInstance(firebase, configs, store) {
   /* istanbul ignore next: Logging is external */
   // Enable Logging based on config (handling instances without i.e RNFirebase)
   if (
@@ -23,6 +23,8 @@ export default function createFirebaseInstance(firebase, configs, dispatch) {
   ) {
     firebase.database.enableLogging(configs.enableLogging)
   }
+
+  const { dispatch } = store
 
   // Add internal variables to firebase instance
   const defaultInternals = {
@@ -564,7 +566,7 @@ export default function createFirebaseInstance(firebase, configs, dispatch) {
     reloadAuth,
     linkWithCredential,
     promiseEvents,
-    dispatch,
+    store,
     ...actionCreators
   })
 }

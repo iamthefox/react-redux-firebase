@@ -42,7 +42,7 @@ export const createFirebaseConnect = (storeKey = 'store') => (
 
       // Allow function to be passed
       const inputAsFunc = createCallable(dataOrFn)
-      this.prevData = inputAsFunc(this.props, this.props)
+      this.prevData = inputAsFunc(this.props, firebase.store)
 
       const { ref, helpers, storage, database, auth } = firebase
       this.firebase = { ref, storage, database, auth, ...helpers }
@@ -60,7 +60,7 @@ export const createFirebaseConnect = (storeKey = 'store') => (
     componentWillReceiveProps(np) {
       const { firebase, dispatch } = this.props
       const inputAsFunc = createCallable(dataOrFn)
-      const data = inputAsFunc(np, this.store)
+      const data = inputAsFunc(np, firebase.store)
 
       // Handle a data parameter having changed
       if (!isEqual(data, this.prevData)) {

@@ -44,10 +44,11 @@ export const createFirestoreConnect = (storeKey = 'store') => (
     }
 
     componentDidMount() {
+      const { firestore } = this.props
       if (this.firestoreIsEnabled) {
         // Listener configs as object (handling function being passed)
         const inputAsFunc = createCallable(dataOrFn)
-        this.prevData = inputAsFunc(this.props, this.props)
+        this.prevData = inputAsFunc(this.props, firestore.store)
         // Attach listeners based on listener config
         this.props.firestore.setListeners(this.prevData)
       }
@@ -62,7 +63,7 @@ export const createFirestoreConnect = (storeKey = 'store') => (
     componentWillReceiveProps(np) {
       const { firestore } = this.props
       const inputAsFunc = createCallable(dataOrFn)
-      const data = inputAsFunc(np, this.props)
+      const data = inputAsFunc(np, firestore.store)
 
       // Check for changes in the listener configs
       if (this.firestoreIsEnabled && !isEqual(data, this.prevData)) {

@@ -9,7 +9,7 @@ import ReduxFirestoreProvider from './ReduxFirestoreProvider'
  * by react-redux-firebase
  * @param {Object} props
  * @param {Object} props.config - react-redux-firebase config
- * @param {Function} props.dispatch - Redux's dispatch function
+ * @param {Object} props.store - Redux store
  * @param {Object} props.firebase - Firebase library
  * @param {Boolean} props.initializeAuth - Whether or not to initialize auth
  * @param {Function} props.createFirestoreInstance - Function for creating
@@ -19,7 +19,7 @@ function ReactReduxFirebaseProvider(props = {}) {
   const {
     children,
     config,
-    dispatch,
+    store,
     firebase,
     initializeAuth,
     createFirestoreInstance
@@ -29,14 +29,14 @@ function ReactReduxFirebaseProvider(props = {}) {
       const extendedFirebaseInstance = createFirebaseInstance(
         firebase,
         config,
-        dispatch
+        store
       )
       if (initializeAuth) {
         extendedFirebaseInstance.initializeAuth()
       }
       return extendedFirebaseInstance
     },
-    [firebase, config, dispatch]
+    [firebase, config, store]
   )
   // Initialize auth if not disabled
   if (createFirestoreInstance) {
@@ -62,7 +62,7 @@ ReactReduxFirebaseProvider.defaultProps = {
 ReactReduxFirebaseProvider.propTypes = {
   children: PropTypes.node,
   config: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
+  store: PropTypes.object.isRequired,
   firebase: PropTypes.object.isRequired,
   initializeAuth: PropTypes.bool,
   createFirestoreInstance: PropTypes.func
