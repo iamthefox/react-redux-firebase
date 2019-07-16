@@ -100,7 +100,7 @@ export const createFirebaseConnect = (storeKey = 'store') => (
         {_internalFirebase => (
           <HoistedComp
             {...props}
-            dispatch={_internalFirebase.dispatch}
+            dispatch={_internalFirebase.store.dispatch}
             firebase={_internalFirebase}
           />
         )}

@@ -121,7 +121,7 @@ export const createFirestoreConnect = (storeKey = 'store') => (
             {firestore => (
               <HoistedComp
                 {...props}
-                dispatch={firebase.dispatch}
+                dispatch={firebase.store.dispatch}
                 firestore={firestore}
                 firebase={firebase}
               />
